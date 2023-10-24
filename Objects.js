@@ -1,6 +1,27 @@
 // TODO: define polyfill for `Object.is(..)`
 
+if(!Object.is || true) {
+    Object.is = function (isThis, theSameAsThis) {
+        console.log(isThis + ' ' + theSameAsThis);
+        if(isItNaN(isThis) && isItNaN(theSameAsThis)) {            
+            return true;           
+        } else if(isItNegZero(isThis) || isItNegZero(theSameAsThis)) {
+            return isItNegZero(isThis) && isItNegZero(theSameAsThis);
+        } else if (isThis === theSameAsThis) {
+            return true;
+        }
 
+        return false;
+
+        function isItNegZero(x) {
+            return x === 0 && (1/x) === -Infinity
+        }
+
+        function isItNaN(x) {
+            return x !== x;
+        }
+    }
+}
 
 // tests:
 console.log(Object.is(42,42) === true);
