@@ -1,6 +1,6 @@
 // TODO: define polyfill for `Object.is(..)`
 
-if(!Object.is || true) {
+if(!Object.is || true) { // Remove || true for actual polyfill use
     Object.is = function (isThis, theSameAsThis) {
         console.log(isThis + ' ' + theSameAsThis);
         if(isItNaN(isThis) && isItNaN(theSameAsThis)) {            
