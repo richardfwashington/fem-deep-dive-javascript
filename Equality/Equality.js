@@ -1,5 +1,7 @@
 // TODO: write `findAll(..)`
-
+function findAll() {
+	
+}
 
 
 // tests:
